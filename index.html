@@ -1,406 +1,728 @@
 <!doctype html>
-c<html>
+<html>
 	<head>
 	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
 	
-	<title>Marek Włodarczyk</title>
+	<title>Marek Wlodarczyk</title>
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-	
-	<style type="text/css">
-	@import url(
-	https://fonts.googleapis.com/css?family=Lato:400,700
-);
-body {
-	background: #fff;
-	font-family: Lato, sans-serif;
-	margin: 0 0 80px;
-}
-a {
-	color: #2ecc71;
-}
-a:focus,
-a:hover {
-	color: #f1c40f;
-	text-decoration: none;
-}
-p {
-	line-height: 1.5;
-	margin: 0;
-}
-p + p {
-	margin-top: 10px;
-}
-h1,
-h2,
-h3,
-h4 {
-	margin-top: 0
-}
-section {
-	margin-top: 30px;
-}
-li {
-	line-height: 1.8;
-	list-style: none;
-}
-li:before {
-	content: "\f052";
-	float: left;
-	font: 13px Octicons;
-	margin-top: 6px;
-	margin-left: -20px;
-	opacity: .1;
-	position: absolute;
-}
-blockquote {
-	border-left: 5px solid #e7e9ec;
-	font-size: 14px;
-}
-em {
-	color: #95a5a6;
-	font-weight: normal;
-	font-style: normal;
-}
-h4 span:first-child {
-	color: #000;
-	font-weight: bold;
-}
-.container {
-	max-width: 750px;
-	padding: 0 30px;
-}
-.col-sm-6 {
-	margin-bottom: 10px;
-}
-.col-sm-12 h4 {
-	margin-top: 12px; 
-}
-.col-sm-12 + .col-sm-12 {
-	margin-top: 30px;
-}
-#header {
-	background: #f4f6f6;
-	padding: 50px 0;
-	margin-bottom: 30px;
-}
-#header h2 {
-	color: #95a5a6;
-	font-size: 24px;
-}
-#content h3 {
-	color: #f1c40f;
-	font-size: 26px;
-	margin-top: -4px;
-}
-#content aside {
-	text-align: right;
-	padding-right: 30px;
-}
-#profiles .network {
-	text-transform: capitalize;
-}
-#work .position,
-#volunteer .position {
-	font-weight: bold;
-	margin-bottom: 8px;
-}
-#education .area {
-	font-weight: bold;
-}
-#education .area:before {
-	content: "\f0d7";
-	font: 16px Octicons;
-	margin-right: 6px;
-}
-#education .studyType {
-	margin-left: 25px;
-}
-#awards .summary,
-#publications .summary {
-	margin-top: 8px;
-}
-#publications .website a:before {
-	content: attr(href);
+
+	<style>
+	body, html {
+  padding-top:2.5em;
+  margin:0;
+  background-color:#fafafa;
 }
 
-@media (min-width: 480px) {
-	.strike-through {
-		border-top: 1px solid #f4f6f6;
-		height: 20px;
-		margin-top: 12px;
-		margin-bottom: -2px;
-		position: relative;
-	}
-	.strike-through span,
-	.strike-through a {
-		background: #fff;
-		position: absolute;
-	}
-	.strike-through span:first-child {
-		padding-right: 20px;
-		margin-top: -12px;
-	}
-	.strike-through span + span {
-		font-size: 14px;
-		margin-top: -10px;
-		padding-left: 20px;
-		right: 0;
-	}
-}
-@media (max-width: 768px) {
-	.col-sm-6:last-child {
-		margin-bottom: 0px;
-	}
-	#content aside {
-		margin-bottom: 20px;
-		padding-right: 0;
-		text-align: left;
-	}
-	#publications .website a:before {
-		content: "View publication";
-	}
-}
-@media (max-width: 480px) {
-	h1 {
-		font-size: 26px;
-	}
-	.date {
-		font-size: 14px;
-		margin-bottom: 5px;
-	}
-	.strike-through span:first-child {
-		margin-bottom: 7px;
-	}
-	.strike-through span {
-		display: block;
-	}	
-	#header {
-		margin-bottom: 10px;
-		padding: 40px 0;
-	}
-	#actions {
-		display: none;
-	}
+.note {
+  display:block;
+  position: absolute;
+  top:10px;
+  left:10px;
+
+  font-family: "Open Sans";
+  font-size: 0.6em;
 }
 
+.new {
+  background-color: #81C784;
+
+  border: 1px solid #757575;
+  padding: 1px;
+  border-radius: 4px;
+
+}
+
+/* Header */
+
+header {
+  width:100%;
+  vertical-align: middle;
+  text-align: center;
+ 
+}
+
+.header-content {
+  display: inline-block;
+}
+
+.pic {
+  margin: 0 auto;
+  margin-top:-2.5em;
+  
+  border-radius:10em;
+  height:4em;
+  width:4em;
+  
+  border: 2px solid #e0e0e0;
+  transition : all 0.5s linear;
+  
+}
+
+@-webkit-keyframes wiggle {
+  0%   {
+    transform: rotate(0deg);
+  }
+  25%  {
+    transform: rotate(-30deg);
+  }
+  50%  {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.pic:hover {
+  /*Webkit fix*/
+  -webkit-transform: translateZ(0);
+  
+  cursor:pointer;
+  
+  -webkit-animation: wiggle 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.header-text {
+  margin-top:0.5em;
+  margin-left:1em;
+}
+
+header p {
+  text-align:center;
+  font-family: "Merriweather";
+  
+  margin:0;
+  
+  color: #212121;
+}
+
+.first-name {
+   font-size: 1.05em;
+}
+
+.subtitle {
+  font-family: "Merriweather";
+  padding-top:.3em;
+  font-size:0.55em;
+  font-weight:500;
+  color: #424242;
+}
+
+/* Information */
+
+.paper {
+  margin: 0 auto;
+  margin-bottom:1em;
+  
+  background-color:white;
+  width:60%;
+  
+  padding:0.5em 0 0.5em 0;
+  
+  border-top: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 3px solid #e0e0e0;
+  border-radius:3px;
+}
+
+@media(max-width:992px) {
+  .paper {
+    width:80%;
+  }
+}
+
+/* Content Part */
+
+.content-wrapper {
+  padding-right:7.25%;
+}
+
+.content {
+  display:table;
+  width:100%;
+  
+  padding-top:1.5em;
+  
+  /*border-top: 1px solid #eeeeee;*/
+}
+
+.content:last-child {
+  margin-bottom: 2em;
+}
+
+body > div > article > div > section:last-child {
+  padding-bottom:1.5em;
+}
+
+.row {
+    display:table-row;
+}
+.row div {
+    display:table-cell;
+}
+
+.content-cat {
+  font-family: "Merriweather";
+  font-variant:small-caps;
+  font-weight:300;
+  letter-spacing: 1px;
+  
+  color: #212121;
+  
+  font-size:0.975em;
+  
+  text-align:center;
+  vertical-align:middle;
+
+  padding-left:6.66%;
+  width:30%;
+}
+
+.content-cat p {
+  font-size:0.55em;
+  font-weight:600;
+  
+  margin-bottom:0;
+}
+
+.content-text {
+  border-left:1px solid #e0e0e0;
+  transition: border 0.66s ease-in;
+}
+
+.big-text {
+  vertical-align:top;
+}
+
+.content-text ul {
+  padding:0;
+  margin:0;
+  margin-top:0.15em;
+  
+  width:85%;
+  margin-left:1.5em;
+}
+
+.content-text ul:last-child {
+  margin-bottom:0.5em;
+}
+
+.content-text ul li {
+  font-family: "Open Sans";
+  font-size:0.7em;
+  
+  display:inline-block;
+  
+}
+
+.content-text ul li:first-child {
+  width:35%;
+  
+  color: #424242;
+  
+  font-weight:600;
+}
+
+.content-text ul li a, div.content-text.work-listing.education-listing > p > strong > a {
+  text-decoration: none;
+  color: #0277bd;
+}
+
+.content-text ul li a:hover {
+  color:#4fc3f7;
+}
+
+.work-listing p {
+  font-family: "Open Sans";
+  font-size:0.7em;
+  
+  color: #424242;
+  
+  margin-left:2em;
+  margin-top:0.45em;
+  margin-bottom: 0.45em;
+}
+
+div.content-text.work-listing.education-listing > p:nth-child(2) {
+  margin-top:0.25em;
+}
+
+.work-listing .highlight {
+  font-family: "Open Sans";
+  font-size:0.7em;
+  font-weight:400;
+  
+  color: #424242;
+  
+  margin-left:3.25em;
+  padding-left:0.5em;
+  
+  border-left:1px solid #e0e0e0;
+  
+}
+
+.education-listing > .heading {
+  font-weight:600;
+  
+  margin-top:0.75em;
+  margin-left:2em;
+}
+
+.education-listing > .highlight {
+  margin-left:3.25em;
+}
+
+.highlight {
+  transition: border .33s ease-in;
+}
+
+.profiles-listing ul li, .profiles-listing ul li:first-child {
+  width:32%;
+  font-weight: normal;
+}
+
+.work-content, .education-content {
+  padding-top: .75em;
+}
+
+section.content.education-content > div > div.content-cat {
+  vertical-align: top;
+}
+
+div.content-text.skills-listing > p {
+  font-family: "Open Sans";
+  font-size:0.7em;
+  font-weight:400;
+
+  margin-left: 2em;
+  margin-top: 0.45em;
+  margin-bottom: 0.45em;
+}
+
+div.content-text.skills-listing > p > {
+  color:#212121;
+}
+
+
+	</style>
+
+	<style media="print">
+	
+body, html {
+  background-color: white;
+  padding-top: 1.5em;
+}
+
+.paper {
+  width:100%;
+  border: 0;
+
+  padding-top: 0;
+}
+
+header p {
+  font-size: 1.3em;
+}
+
+.subtitle {
+  font-size: 0.7em;
+}
+
+.header-pic {
+  float:left;
+}
+
+.profiles {
+  display:none;
+}
+
+.content {
+  page-break-inside:avoid; 
+  page-break-after:auto;
+}
+
+.header-text {
+  float:left;
+  margin-top: -1.6em;
+}
+
+.content-wrapper > .content:first-child {
+  padding-top: 2em;
+}
+
+.content:last-child {
+  padding-bottom: 0;
+}
+
+.content-cat {
+  width:33%;
+  color:black;
+  text-align: left;
+}
+
+.content-cat p {
+  font-size:0.6em;
+  font-weight: 600;
+}
+
+header p, .content-text, .work-listing p, .content-text ul li:first-child, .work-listing .highlight, .content-text.skills-listing > ul > li > .highlight {
+  color:black;
+}
+
+.content-text.skills-listing > ul > li span, .subtitle {
+  color:#212121;
+}
+
+.content-text ul:last-child {
+  margin-bottom: 0.25em;
+}
+
+.content-text ul li:first-child {
+  width:50%;
+}
+
+.profiles-listing ul li:first-child {
+  width:32%;
+}
+
+div.content-text.skills-listing > ul > li {
+  width:33%;
+}
+
+.work-listing p {
+  margin-bottom: 0.1em;
+}
+
+div.content-text.skills-listing > ul > li > p {
+  margin-top: 0.4em;
+  margin-bottom: 0.5em;
+}
+
+div.content-text.skills-listing > ul > li {
+  padding-left: 1.5em;
+}
+
+div.content-text.skills-listing > ul > li:first-child {
+  padding-left: 2em;
+}
+
+.note {
+  display:none;
+}
+
+.content-text:hover {
+  border-left:1px solid #eeeeee;
+}
+
+.content-text ul li a:hover {
+  color:#4fc3f7;
+}
+
+.highlight:hover, .content-text.skills-listing > ul > li > .highlight:hover {
+  border-left:1px solid #eeeeee;
+}
+
+.big-text {
+  padding-top: 0;
+}
 	</style>
 	
 	</head>
 	<body>
-	
-	<header id="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9 col-sm-push-3">
-					<h1>
-						Marek Włodarczyk
-					</h1>
-					<h2>
-						Software Developer
-					</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div id="content" class="container">
 
-	<section id="about" class="row">
-		<aside class="col-sm-3">
-			<h3>About</h3>
-		</aside>
-		<div class="col-sm-9">
-			<p> Senior Software Developer : Programming Informix(4gl), PL/SQL, Python, Databases: Informix, Oracle, MongoDB, Mysql</p>
-		</div>
-	</section>
+		<div class="resume-wrapper">
+		  <article class="paper">
+			    <header>
+			      <div class="header-content">
+			        <div class="header-pic" title="Wiggle Wiggle">
+			          <img src="zdj/mk1.png" class="pic" />
+			        </div>
+			        <div class="header-text">
+			          <p>
+			            Marek Wlodarczyk
+			          </p>
+			          <p class="subtitle">Software Developer</p>
+			        </div>
+			      </div>
+			    </header>
+			    <div class="content-wrapper">
+			    
+			      <!-- CONTACT -->
+			      <section class="content">
+			        <div class="row">
+			          <div class="content-cat">
+			          </div>
+			          <div class="content-text">
 
-	<section id="work" class="row">
-		<aside class="col-sm-3">
-			<h3>Work</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Avaus</span>
-					<span class="date">
-						2016-09-01 — 
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.avausmarketing.fi/">http://www.avausmarketing.fi/</a>
-				</div>
-				<div class="position">
-					Sytem Engineer
-				</div>
-				<div class="summary">
-					<p>Integration customer&#x60;s data with Marketo</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>SII</span>
-					<span class="date">
-						2013-04-15 — 2013-07-14
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.sii.pl">http://www.sii.pl</a>
-				</div>
-				<div class="position">
-					Software Developer
-				</div>
-				<div class="summary">
-					<p> Implementation and documentation of system components for Nordea Bank</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>7N</span>
-					<span class="date">
-						2013-04-15 — 2013-07-14
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.7n.pl">http://www.7n.pl</a>
-				</div>
-				<div class="position">
-					Informix Software Developer
-				</div>
-				<div class="summary">
-					<p> Implementation and documentation of system components for Insurer </p>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
+				            <ul>
+				              <li>linkedin</li>
+				              <li>www.linkedin.com/in/marek-wlodarczyk</li>
+				            </ul>
 
-	
-	<section id="education" class="row">
-		<aside class="col-sm-3">
-			<h3>Education</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Nicolaus Copernicus University in Toruń</span>
-					<span class="date">
-						 — 
-					</span>
-				</h4>
-				<div class="area">
-					Information Technology
-				</div>
-				<div class="studyType">
-					Bachelor
-				</div>
-				<h4>Courses</h4>
-				<ul class="courses">
-					<li>UML - UML Introduction</li>
-					<li>CS2011 - Java Introduction</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	
-	<section id="skills" class="row">
-		<aside class="col-sm-3">
-			<h3>Skills</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Web Development</h4>
-				</div>
-				<ul class="keywords">
-					<li>HTML</li>
-					<li>CSS</li>
-					<li>Javascript</li>
-					<li>Jquery</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Programming</h4>
-				</div>
-				<ul class="keywords">
-					<li>Informix(4gl)</li>
-					<li>SQL</li>
-					<li>Shell scripting</li>
-					<li>Delphi</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
+			          </div>
+			        </div>
+			      </section>
 
-	<section id="languages" class="row">
-		<aside class="col-sm-3">
-			<h3>Languages</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>English</strong>
-				</div>
-				<div class="fluency">
-					Intermediate
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
+			      <!-- LOCATION -->
+					      <section class="content">
+					        <div class="row">
+					          <div class="content-cat">
+					          </div>
+					          <div class="content-text">
 
-	<section id="interests" class="row">
-		<aside class="col-sm-3">
-			<h3>Interests</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Linux</h4>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	<section id="references" class="row">
-		<aside class="col-sm-3">
-			<h3>References</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<blockquote class="reference">
-					<p>I know Marek to be a very open, reliable and friendly person. He has an ability to build relationships with other people. He is the best Informix Software Developer I&#x27;ve ever met. He is interested in new technologies. In addtion, he is a great team member.</p>
-					<p class="name">
-						<strong>— Bartosz Kozak</strong>
-					</p>
-				</blockquote>
-			</div>
-			<div class="col-sm-12">
-				<blockquote class="reference">
-					<p>Marek is very ambitious developer, always willing to learn new things. His friendly attitude had good influence on the team. I wish him all the best in future challenges :) </p>
-					<p class="name">
-						<strong>— Jarosław Cichoń</strong>
-					</p>
-				</blockquote>
-			</div>
-			</div>
-		</div>
-	</section>
 
-	</div>
-	
+							            <ul>
+							              <li>city</li>
+							              <li>84-230 Gdynia</li>
+							            </ul>
+
+						            <ul>
+						              <li>region</li>
+						              <li>Polska</li>
+						            </ul>
+
+					          </div>
+					        </div>
+					      </section>
+
+
+						
+
+
+			      <!-- PROFILES -->
+				      <section class="content profiles">
+				        <div class="row">
+				          <div class="content-cat">
+				          </div>
+				          <div class="content-text profiles-listing">
+				            <ul>
+				            </ul>
+				          </div>
+				        </div>
+				      </section>
+
+								<section class="content">
+			        <div class="row">
+			          <div class="content-cat big-text">
+			          
+			            		<p>2016-09-01 </p>
+
+			          </div>
+			          <div class="content-text work-listing education-listing">
+					            <p style="margin-top:2.4em;">
+													<strong>Sytem Engineer</strong> at <strong><a href="http://www.avauas.pl/">Avaus:</a></strong>
+					            </p>
+
+											<p>Integration customer&#x60;s data with Marketo using Talend. Consuming RESTful API services. Using Agile methods like Scrum.</p>
+
+
+									
+			          </div>
+			        </div>
+			      </section>
+								<section class="content work-content">
+			        <div class="row">
+			          <div class="content-cat big-text">
+			          
+			            		<p>2013-04-01 </p>
+
+			          </div>
+			          <div class="content-text work-listing education-listing">
+					            <p>
+													<strong>Software Developer</strong> at <strong><a href="http://www.sii.pl">SII:</a></strong>
+					            </p>
+
+											<p>Implementation and documentation of system components for Nordea Bank.  Advise on database design and application architecture.  Data structure modelling.  Verification of structure and quality of data base.  Using Agile methods like Scrum.  </p>
+
+
+									
+			          </div>
+			        </div>
+			      </section>
+								<section class="content work-content">
+			        <div class="row">
+			          <div class="content-cat big-text">
+			          
+			            		<p>2012-04-01 </p>
+
+			          </div>
+			          <div class="content-text work-listing education-listing">
+					            <p>
+													<strong>Informix Software Developer</strong> at <strong><a href="http://www.7n.pl">7N:</a></strong>
+					            </p>
+
+											<p>Implementation and documentation of system components for Insurer. Implementing the code according to requirements. Resolving bugs.</p>
+
+
+									
+			          </div>
+			        </div>
+			      </section>
+								<section class="content work-content">
+			        <div class="row">
+			          <div class="content-cat big-text">
+			          
+			            		<p>2008-10-01 </p>
+
+			          </div>
+			          <div class="content-text work-listing education-listing">
+					            <p>
+													<strong>Software Developer Level 1</strong> at <strong><a href="http://www.7n.pl">Thomson Reuters:</a></strong>
+					            </p>
+
+											<p>Implementation and documentation of system components for Kondor. Implementing the code according to requirements. Resolving bugs.</p>
+
+
+									
+			          </div>
+			        </div>
+			      </section>
+								<section class="content work-content">
+			        <div class="row">
+			          <div class="content-cat big-text">
+			          
+			            		<p>1998-12-01 </p>
+
+			          </div>
+			          <div class="content-text work-listing education-listing">
+					            <p>
+													<strong>Designer Software</strong> at <strong><a href="http://www.asseco.pl">Asseco:</a></strong>
+					            </p>
+
+											<p> Implementation and documentation of system components for Promak </p>
+
+
+									
+			          </div>
+			        </div>
+			      </section>
+								<section class="content work-content">
+			        <div class="row">
+			          <div class="content-cat big-text">
+			          
+			            		<p>1997-05-01 </p>
+
+			          </div>
+			          <div class="content-text work-listing education-listing">
+					            <p>
+													<strong>Support Product Engineer</strong> at <strong><a href="http://www.komtech.pl">Komtech:</a></strong>
+					            </p>
+
+											<p>Maintence Support Engineer for Magic</p>
+
+
+									
+			          </div>
+			        </div>
+			      </section>
+
+					
+
+						<!-- LANGUAGE -->
+			      <section class="content">
+			        <div class="row">
+			          <div class="content-cat">
+			          </div>
+			          <div class="content-text">
+
+				            <ul>
+											
+				              	<li>English</li>
+
+				              <li>Intermediate</li>
+
+				            </ul>
+
+			          </div>
+			        </div>
+			      </section>
+								<section class="content">
+				        <div class="row">
+				          <div class="content-cat big-text">
+
+				           
+
+				            		<p>1990-10-01  1995-07-01</p>
+
+				          </div>
+				          <div class="content-text work-listing education-listing">
+						            <p class="heading" style="margin-top:2.35em;">University of Nicolaus Copernicus Toruń</p>
+
+				            		<p class="highlight">
+													Bachelor:
+				            		<i>Information Technology (3.5)</i>
+				            		</p>
+
+				          </div>
+				        </div>
+				      </section>
+
+
+			      <section class="content">
+			        <div class="row">
+			          <div class="content-cat">
+				Skills
+			          </div>
+			          <div class="content-text skills-listing">
+			            	<p>
+			            	<span class="name">
+											<strong>
+											Web Development:
+
+											</strong>
+			            	</span>
+
+
+												HTML, CSS, Javascript, Jquery
+			            	</p>
+			            	<p>
+			            	<span class="name">
+											<strong>
+											Programming:
+
+											</strong>
+			            	</span>
+
+
+												Informix(4gl), SQL, Shell scripting, Python, C/C++, Delphi
+			            	</p>
+			          </div>
+			        </div>
+			      </section>
+
+			      <section class="content">
+			        <div class="row">
+			          <div class="content-cat">
+					Interests
+			          </div>
+			          <div class="content-text skills-listing">
+			            	<p>
+			            	<span class="name">
+											<strong>
+												Linux:
+											</strong>
+			            	</span>
+			            	</p>
+			            	<p>
+			            	<span class="name">
+											<strong>
+												Singing:
+											</strong>
+			            	</span>
+			            	</p>
+			          </div>
+			        </div>
+			      </section>
+
+		    </div>
+		      
+		  </article>
+		  
+		</div>
 	</body>
 </html>
